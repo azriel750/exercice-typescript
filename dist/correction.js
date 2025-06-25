@@ -1,9 +1,6 @@
-export { };
-
 // ========================================================================
 // Données de Départ
 // ========================================================================
-
 const data = {
     books: [
         {
@@ -42,7 +39,6 @@ const data = {
         },
     ],
 };
-
 // ========================================================================
 // Exercice 1 : Typage de Constantes Simples
 // ========================================================================
@@ -51,49 +47,9 @@ const data = {
 // 1. Créez une constante "appName" de type string contenant le nom de l'application.
 // 2. Créez une constante "isOnline" de type boolean indiquant si l'application est connectée.
 // 3. Créez une constante "maxItems" de type number représentant un maximum autorisé.
-const appName: string = "connection";
-const isOnline: boolean = true;
-const maxItems: number = 13;
-// ========================================================================
-// Exercice 2 : Interfaces des Objets
-// ========================================================================
-// Objectif : Décrire le type de chaque catégorie de produit.
-//
-// 1. Créez une interface "Book" avec les propriétés correspondantes.
-// 2. Créez une interface "Movie" avec les propriétés correspondantes.
-// 3. Créez une interface "Album" avec les propriétés correspondantes.
-interface Book {
-    title: string;
-    author: string;
-    year: number;
-}
-interface Movie {
-    title: string;
-    director: string;
-    year: number;
-}
-interface albulms {
-    title: string;
-    artist: string;
-    year: number;
-}
-// ========================================================================
-// Exercice 3 : Interface de l’Objet Global
-// ========================================================================
-// Objectif : Utilisez les interfaces précédentes pour typer l’objet "data".
-//
-// 1. Créez une interface "MediaData" avec trois propriétés :
-//    - books : tableau de Book
-//    - movies : tableau de Movie
-//    - albums : tableau de Album
-interface MediaData {
-    books: Book[];
-    movies: Movie[];
-    albums: albulms[];
-}
-// 2. Typez la constante `data` contenant les données (plus haut dans le fichier)
-//    avec l’interface MediaData.
-data: MediaMetadata;
+const appName = "Mon application";
+const isOnline = true;
+const maxItems = 10;
 // ========================================================================
 // Exercice 4 : Fonction d’Affichage Contextuel
 // ========================================================================
@@ -106,12 +62,19 @@ data: MediaMetadata;
 //     - "Livre : The Hobbit par J.R.R. Tolkien (1937)"
 //     - "Film : Inception réalisé par Christopher Nolan (2010)"
 //     - "Album : Thriller par Michael Jackson (1982)"
-function displayItemDetails(item: Book | Movie | albulms) {
+function displayItemDetails(item) {
     if ("author" in item) {
-        console.log(`livre :${item.title} de ${item.author} écrit en(${item.year})`);
-    } else if ("director" in item) {
-        console.log(`film :${item.title} réalisé par ${item.director} en  (${item.year})`);
-    } else if ("artist" in item) { console.log(`album :${item.title} de l'artiste ${item.artist} en (${item.year})`); }
+        console.log(`Livre : ${item.title} par ${item.author} (${item.year})`);
+    }
+    else if ("director" in item) {
+        console.log(`Film : ${item.title} réalisé par ${item.director} (${item.year})`);
+    }
+    else if ("artist" in item) {
+        console.log(`Album : ${item.title} par ${item.artist} (${item.year})`);
+    }
+    else {
+        console.log("Type de média inconnu");
+    }
 }
 // ========================================================================
 // Exercice 5 : Boucle sur Tous les Éléments
@@ -120,3 +83,13 @@ function displayItemDetails(item: Book | Movie | albulms) {
 //
 // 1. Parcourez tous les tableaux de "data" avec des boucles forEach.
 // 2. Appelez "displayItemDetails" pour chaque élément rencontré
+data.albums.forEach((album) => {
+    displayItemDetails(album);
+});
+data.movies.forEach((movie) => {
+    displayItemDetails(movie);
+});
+data.books.forEach((book) => {
+    displayItemDetails(book);
+});
+export {};

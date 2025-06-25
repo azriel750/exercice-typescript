@@ -112,21 +112,21 @@ function displayItemDetails(item: Book | Movie | albulms) {
     } else if ("director" in item) {
         console.log(`film :${item.title} réalisé par ${item.director} en  (${item.year})`);
     } else if ("artist" in item) { console.log(`album :${item.title} de l'artiste ${item.artist} en (${item.year})`); }
-}
+} 
 // ========================================================================
 // Exercice 5 : Boucle sur Tous les Éléments
 // ========================================================================
 // Objectif : Utiliser la fonction "displayItemDetails" avec tous les tableaux
-data.albums.forEach((test)=>  {
-  displayItemDetails(test);
+data.albums.forEach((book)=>  {
+  displayItemDetails(book);
 });
 
 data.movies.forEach((movie) => {
   displayItemDetails(movie);
 });
 
-data.books.forEach((book) => {
-  displayItemDetails(book);
+data.books.forEach((album) => {
+  displayItemDetails(album);
 });
    
 

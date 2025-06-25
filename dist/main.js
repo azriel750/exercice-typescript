@@ -76,11 +76,19 @@ function displayItemDetails(item) {
         console.log(`album :${item.title} de l'artiste ${item.artist} en (${item.year})`);
     }
 }
-export {};
 // ========================================================================
 // Exercice 5 : Boucle sur Tous les Éléments
 // ========================================================================
-// Objectif : Utiliser la fonction "displayItemDetails" avec tous les tableaux.
-//
+// Objectif : Utiliser la fonction "displayItemDetails" avec tous les tableaux
+data.albums.forEach((book) => {
+    displayItemDetails(book);
+});
+data.movies.forEach((movie) => {
+    displayItemDetails(movie);
+});
+data.books.forEach((album) => {
+    displayItemDetails(album);
+});
+export {};
 // 1. Parcourez tous les tableaux de "data" avec des boucles forEach.
 // 2. Appelez "displayItemDetails" pour chaque élément rencontré
